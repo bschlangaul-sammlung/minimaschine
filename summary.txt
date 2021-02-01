@@ -1,0 +1,9 @@
+Summary for /www/javadecompilers/app/public/data/01.02.21/f2c4c4e5918f3e90f58de1de25b8cff7/Minimaschine.jar
+Decompiled with CFR 0.150
+
+
+MODEL.MINISPRACHE.Scanner
+----------------------------
+
+Kommentar()
+  Unable to fully structure code
