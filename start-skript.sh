@@ -1,3 +1,5 @@
 #! /bin/sh
 
-java -jar /usr/local/share/java/jars/minimaschine.jar & > /dev/null 2>&1
+echo "minimaschine [datei1.mia] [datei2.mia]"
+
+java -jar /usr/local/share/java/jars/minimaschine.jar $@
