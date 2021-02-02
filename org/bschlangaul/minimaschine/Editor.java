@@ -34,7 +34,6 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.undo.UndoManager;
 
 class Editor extends Anzeige {
-  private static final int umrechnung = 25410;
   private static File letzterOrdner = null;
   private JEditorPane editor;
   private JScrollPane scroll;
@@ -45,7 +44,6 @@ class Editor extends Anzeige {
   private JFileChooser fileChooser;
   private File file;
   private UndoManager undo;
-  private boolean istAssembler = true;
   private String sicherungsstand = "";
 
   Editor(KontrolleurInterface kontrolleurInterface) {
@@ -67,6 +65,7 @@ class Editor extends Anzeige {
   @Override
   protected void OberflächeAufbauen() {
     this.undo = new UndoManager() {
+      private static final long serialVersionUID = -1696452306423710125L;
 
       @Override
       public void undoableEditHappened(UndoableEditEvent undoableEditEvent) {
@@ -80,6 +79,7 @@ class Editor extends Anzeige {
     JPanel jPanel = (JPanel) this.fenster.getContentPane();
     jPanel.setLayout(new BorderLayout());
     this.editor = new JEditorPane("text/plain", null) {
+      private static final long serialVersionUID = 8538143889816663243L;
 
       @Override
       public void cut() {

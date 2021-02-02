@@ -86,7 +86,7 @@ public abstract class Cpu implements CpuMeldungsErzeuger {
     this.sp = new Register();
     this.sp.WertSetzen(-2);
     this.mnemos = AssemblerBefehle.AssemblerbefehleGeben();
-    this.beobachter = new ArrayList();
+    this.beobachter = new ArrayList<CpuBeobachter>();
     this.ZurückSetzen();
     this.schranke = 5L;
     this.hexaAnzeige = false;

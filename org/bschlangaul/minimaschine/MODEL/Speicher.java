@@ -5,7 +5,7 @@ import java.util.ArrayList;
 class Speicher implements SpeicherMeldungsErzeuger {
   private short[] speicher;
   private int geändert;
-  private ArrayList<SpeicherBeobachter> beobachter = new ArrayList();
+  private ArrayList<SpeicherBeobachter> beobachter = new ArrayList<SpeicherBeobachter>();
   private static Speicher derSpeicher = new Speicher();
 
   static Speicher SpeicherGeben() {

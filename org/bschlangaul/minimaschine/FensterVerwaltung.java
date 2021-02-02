@@ -3,7 +3,7 @@ package org.bschlangaul.minimaschine;
 import java.util.ArrayList;
 
 class FensterVerwaltung {
-  private ArrayList<Anzeige> offen = new ArrayList();
+  private ArrayList<Anzeige> offen = new ArrayList<Anzeige>();
   private Anzeige cpuanzeige;
   private Anzeige cpuanzeigeEinfach;
   private Anzeige cpuanzeigeDetail;

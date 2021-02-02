@@ -4,7 +4,7 @@ import org.bschlangaul.minimaschine.MODEL.FehlerVerwaltung;
 import java.util.HashSet;
 
 public class ParserEinfach extends Parser {
-  private HashSet<String> variable = new HashSet();
+  private HashSet<String> variable = new HashSet<String>();
   private int akthilfsplatz = 0;
   private int maxhilfsplatz = 0;
   private int markenNummer = 0;

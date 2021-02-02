@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 public class ParserErweitert extends Parser {
-  private HashMap<String, Bezeichner> globaleBezeichner = new HashMap();
-  private HashMap<String, Bezeichner> lokaleBezeichner = new HashMap();
+  private HashMap<String, Bezeichner> globaleBezeichner = new HashMap<String, Bezeichner>();
+  private HashMap<String, Bezeichner> lokaleBezeichner = new HashMap<String, Bezeichner>();
   private StackVerwaltung stack = new StackVerwaltung();
   private int markenNummer = 0;
   private String prozedurname = null;
@@ -220,7 +220,8 @@ public class ParserErweitert extends Parser {
     if (this.aktToken == 45) {
       this.aktToken = this.scanner.NächstesToken();
       if (this.aktToken != 46) {
-        int n = this.ParamterVereinbarung(prozedur);
+        //int n = this.ParamterVereinbarung(prozedur);
+        this.ParamterVereinbarung(prozedur);
       }
       if (this.aktToken == 46) {
         this.aktToken = this.scanner.NächstesToken();
@@ -338,7 +339,8 @@ public class ParserErweitert extends Parser {
   void ParameterSetzen(Prozedur prozedur) {
     Parameter parameter;
     Iterator<Parameter> iterator = prozedur.ParameterGeben().iterator();
-    Parameter parameter2 = parameter = iterator.hasNext() ? iterator.next() : null;
+    //Parameter parameter2 = parameter = iterator.hasNext() ? iterator.next() : null;
+    parameter = iterator.hasNext() ? iterator.next() : null;
     while (true) {
       if (parameter == null) {
         this.fehler.FehlerEintragen("Mehr aktuelle als formale Paramter", this.scanner.PositionGeben());
@@ -370,10 +372,12 @@ public class ParserErweitert extends Parser {
         this.stack.Dekrementieren(parameter.FeldlängeGeben());
         this.ausgabe.BefehlEintragen(null, "LOAD", "$0(SP)");
         this.ausgabe.BefehlEintragen(null, "PUSH", null);
-        AblageStackHilf ablageStackHilf = new AblageStackHilf(this.stack, true, true);
+        //AblageStackHilf ablageStackHilf = new AblageStackHilf(this.stack, true, true);
+        new AblageStackHilf(this.stack, true, true);
         ablage.AdresseLaden(this.ausgabe, false);
         this.ausgabe.BefehlEintragen(null, "PUSH", null);
-        AblageStackHilf ablageStackHilf2 = new AblageStackHilf(this.stack, true, true);
+        //AblageStackHilf ablageStackHilf2 = new AblageStackHilf(this.stack, true, true);
+        new AblageStackHilf(this.stack, true, true);
         for (int i = 0; i < parameter.FeldlängeGeben(); ++i) {
           this.ausgabe.BefehlEintragen(null, "LOAD", "@0(SP)");
           this.ausgabe.BefehlEintragen(null, "STORE", "@1(SP)");
@@ -472,10 +476,10 @@ public class ParserErweitert extends Parser {
         this.aktToken = this.scanner.NächstesToken();
       }
     }
-    Variable variable2 = null;
+    //Variable variable2 = null;
     if (this.aktToken == 2 && (bezeichner = this.BezeichnerSuchen(this.scanner.BezeichnerGeben())) != null
         && bezeichner instanceof Variable) {
-      variable2 = (Variable) bezeichner;
+      //variable2 = (Variable) bezeichner;
     }
     ablage = this.AusdruckStrich();
     if (!bl && variable.IstFeld()) {
@@ -514,7 +518,7 @@ public class ParserErweitert extends Parser {
   }
 
   private Ablage AusdruckStrich() {
-    boolean bl;
+    //boolean bl;
     boolean bl2 = false;
     if (this.aktToken == 34) {
       this.aktToken = this.scanner.NächstesToken();
@@ -524,7 +528,7 @@ public class ParserErweitert extends Parser {
     }
     Ablage ablage = this.AusdruckPunkt();
     if (bl2) {
-      bl = false;
+      //bl = false;
       if (ablage instanceof AblageGeladen) {
         ablage = Ablage.HilfsplatzAnlagen(this.ausgabe, this.stack, false);
       }
@@ -540,7 +544,7 @@ public class ParserErweitert extends Parser {
       } else if (this.aktToken == 35) {
         string = "SUB";
       }
-      bl = false;
+      //bl = false;
       if (ablage instanceof AblageGeladen) {
         ablage = Ablage.HilfsplatzAnlagen(this.ausgabe, this.stack, false);
       }

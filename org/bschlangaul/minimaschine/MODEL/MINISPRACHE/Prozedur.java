@@ -10,7 +10,7 @@ class Prozedur extends Bezeichner {
   Prozedur(String string, boolean bl) {
     super(string);
     this.istFunktion = bl;
-    this.parameter = new ArrayList();
+    this.parameter = new ArrayList<Parameter>();
     this.parameterLänge = 0;
   }
 

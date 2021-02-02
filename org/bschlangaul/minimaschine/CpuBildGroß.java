@@ -4,6 +4,9 @@ import java.awt.Font;
 import java.awt.Graphics;
 
 class CpuBildGroß extends CpuBild {
+
+  private static final long serialVersionUID = 6899616626691105780L;
+
   CpuBildGroß() {
     this.breiteCpu = 570;
     this.höheCpu = 240;

@@ -3,7 +3,7 @@ package org.bschlangaul.minimaschine.MODEL.MINISPRACHE;
 import java.util.HashMap;
 
 class TextToken {
-  private HashMap<String, Integer> tokentabelle = new HashMap(20);
+  private HashMap<String, Integer> tokentabelle = new HashMap<String, Integer>(20);
   private static TextToken dasObjekt = new TextToken();
 
   private TextToken() {

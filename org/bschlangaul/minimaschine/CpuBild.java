@@ -7,6 +7,7 @@ import java.awt.Polygon;
 import javax.swing.JComponent;
 
 class CpuBild extends JComponent {
+  private static final long serialVersionUID = -3192295499442985896L;
   protected int breiteCpu = 380;
   protected int höheCpu = 180;
   protected int breiteSpeicher = 160;

@@ -22,7 +22,6 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableModel;
 
 class SpeicherAnzeige extends Anzeige implements SpeicherBeobachter {
-  private JScrollPane scroll;
   private TableModel dataModel;
   private JTable table;
   private JTable tableGross;
@@ -51,6 +50,8 @@ class SpeicherAnzeige extends Anzeige implements SpeicherBeobachter {
     this.content.setLayout(new BorderLayout());
     this.dataModel = new AbstractTableModel() {
 
+      private static final long serialVersionUID = 6465669875510059255L;
+
       @Override
       public String getColumnName(int n) {
         return n == 0 ? "" : "" + (n - 1);
@@ -69,7 +70,7 @@ class SpeicherAnzeige extends Anzeige implements SpeicherBeobachter {
       @Override
       public Object getValueAt(int n, int n2) {
         if (n2 == 0) {
-          return new Integer(n * 10);
+          return Integer.valueOf(n * 10);
         }
         int n3 = n * 10 + (n2 - 1);
         if (n3 < 65536) {
@@ -88,7 +89,7 @@ class SpeicherAnzeige extends Anzeige implements SpeicherBeobachter {
             String string = "0000" + Integer.toHexString(SpeicherLesen.WortOhneVorzeichenGeben(n3)).toUpperCase();
             return string.substring(string.length() - 4);
           }
-          return new Integer(SpeicherLesen.WortMitVorzeichenGeben(n3));
+          return Integer.valueOf(SpeicherLesen.WortMitVorzeichenGeben(n3));
         }
         return "";
       }
@@ -128,6 +129,7 @@ class SpeicherAnzeige extends Anzeige implements SpeicherBeobachter {
       this.table.getColumnModel().getColumn(n).setPreferredWidth(50);
     }
     this.table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+      private static final long serialVersionUID = -4416209977927109605L;
       private Font f = null;
       private Font fbold = null;
 
@@ -162,6 +164,7 @@ class SpeicherAnzeige extends Anzeige implements SpeicherBeobachter {
       this.tableGross.getColumnModel().getColumn(n).setPreferredWidth(100);
     }
     this.tableGross.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+      private static final long serialVersionUID = -8091943695933977336L;
       private Font f = null;
       private Font fbold = null;
 

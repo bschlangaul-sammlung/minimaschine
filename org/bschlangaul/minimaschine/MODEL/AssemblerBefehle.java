@@ -3,8 +3,8 @@ package org.bschlangaul.minimaschine.MODEL;
 import java.util.HashMap;
 
 public class AssemblerBefehle {
-  private HashMap<String, Integer> befehlstabelle = new HashMap(80);
-  private HashMap<Integer, String> reversetabelle = new HashMap(40);
+  private HashMap<String, Integer> befehlstabelle = new HashMap<String, Integer>(80);
+  private HashMap<Integer, String> reversetabelle = new HashMap<Integer, String>(40);
   private static AssemblerBefehle dasObjekt = new AssemblerBefehle();
 
   public static AssemblerBefehle AssemblerbefehleGeben() {
