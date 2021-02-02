@@ -221,7 +221,7 @@ abstract class Anzeige {
     this.fensterMenü.remove(n + 3);
   }
 
-  void Fenstereintrag\u00c4ndern(int n, Anzeige anzeige) {
+  void FenstereintragÄndern(int n, Anzeige anzeige) {
     this.fensterMenü.getItem(n + 3).setText(anzeige.TitelGeben());
   }
 

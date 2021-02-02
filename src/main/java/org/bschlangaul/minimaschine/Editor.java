@@ -93,6 +93,7 @@ class Editor extends Anzeige {
         Editor.this.ZeilenNummernSetzen(false);
       }
     };
+    this.editor.setFont(new Font("Monospaced", 0, 20));
     this.editor.getDocument().addUndoableEditListener(this.undo);
     this.zeilenNummern = new JTextArea("1 \n");
     this.zeilenNummern.setFont(this.editor.getFont());
@@ -185,7 +186,7 @@ class Editor extends Anzeige {
       fileWriter.close();
       this.sicherungsstand = this.editor.getText();
       this.fenster.setTitle(this.file.getPath());
-      this.kontrolleur.FensterTitel\u00c4ndernWeitergeben(this.selbst);
+      this.kontrolleur.FensterTitelÄndernWeitergeben(this.selbst);
     } catch (Exception exception) {
       this.file = null;
     }
@@ -194,8 +195,8 @@ class Editor extends Anzeige {
   private void SchließenAusführen(boolean bl) {
     if (!this.sicherungsstand.equals(this.editor.getText())) {
       int n = JOptionPane.showConfirmDialog(this.fenster,
-          new String[] { "Dieses Fenster enthält ungesicherte \u00c4nderungen.", "Sollen sie gesichert werden?" },
-          "\u00c4nderungen sichern", bl ? 1 : 0);
+          new String[] { "Dieses Fenster enthält ungesicherte Änderungen.", "Sollen sie gesichert werden?" },
+          "Änderungen sichern", bl ? 1 : 0);
       if (n == 0) {
         this.SichernAusführen(false);
       } else if (n != 1) {
@@ -210,8 +211,8 @@ class Editor extends Anzeige {
   void BeendenMitteilen() {
     if (!this.sicherungsstand.equals(this.editor.getText())) {
       int n = JOptionPane.showConfirmDialog(this.fenster,
-          new String[] { "Dieses Fenster enthält ungesicherte \u00c4nderungen.", "Sollen sie gesichert werden?" },
-          "\u00c4nderungen sichern", 0);
+          new String[] { "Dieses Fenster enthält ungesicherte Änderungen.", "Sollen sie gesichert werden?" },
+          "Änderungen sichern", 0);
       if (n == 0) {
         this.SichernAusführen(false);
       }
@@ -421,7 +422,7 @@ class Editor extends Anzeige {
       this.fenster.setVisible(true);
       this.undoItem.setEnabled(false);
       this.redoItem.setEnabled(false);
-      this.kontrolleur.FensterTitel\u00c4ndernWeitergeben(this.selbst);
+      this.kontrolleur.FensterTitelÄndernWeitergeben(this.selbst);
     } else {
       this.kontrolleur.SchließenAusführen(this.selbst);
       this.fenster.dispose();
@@ -442,7 +443,7 @@ class Editor extends Anzeige {
     this.fenster.setVisible(true);
     this.undoItem.setEnabled(false);
     this.redoItem.setEnabled(false);
-    this.kontrolleur.FensterTitel\u00c4ndernWeitergeben(this.selbst);
+    this.kontrolleur.FensterTitelÄndernWeitergeben(this.selbst);
   }
 
   void FehlerAnzeigen(String string, int n) {

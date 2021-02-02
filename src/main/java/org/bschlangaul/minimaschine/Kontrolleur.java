@@ -127,8 +127,8 @@ class Kontrolleur implements KontrolleurInterface {
   }
 
   @Override
-  public void FensterTitel\u00c4ndernWeitergeben(Anzeige anzeige) {
-    this.verwaltung.EditorTitel\u00c4ndern(anzeige);
+  public void FensterTitelÄndernWeitergeben(Anzeige anzeige) {
+    this.verwaltung.EditorTitelÄndern(anzeige);
   }
 
   @Override

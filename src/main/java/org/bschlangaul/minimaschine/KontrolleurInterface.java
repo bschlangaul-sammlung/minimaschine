@@ -29,7 +29,7 @@ interface KontrolleurInterface {
 
   public void SchließenAusführen(Anzeige var1);
 
-  public void FensterTitel\u00c4ndernWeitergeben(Anzeige var1);
+  public void FensterTitelÄndernWeitergeben(Anzeige var1);
 
   public void CpuFensterAuswählen();
 

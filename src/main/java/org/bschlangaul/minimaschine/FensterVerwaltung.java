@@ -44,13 +44,13 @@ class FensterVerwaltung {
     this.speicheranzeige.FenstereintragEntfernen(n);
   }
 
-  void EditorTitel\u00c4ndern(Anzeige anzeige) {
+  void EditorTitelÄndern(Anzeige anzeige) {
     int n = this.offen.indexOf(anzeige);
     for (Anzeige anzeige2 : this.offen) {
-      anzeige2.Fenstereintrag\u00c4ndern(n, anzeige);
+      anzeige2.FenstereintragÄndern(n, anzeige);
     }
-    this.cpuanzeige.Fenstereintrag\u00c4ndern(n, anzeige);
-    this.speicheranzeige.Fenstereintrag\u00c4ndern(n, anzeige);
+    this.cpuanzeige.FenstereintragÄndern(n, anzeige);
+    this.speicheranzeige.FenstereintragÄndern(n, anzeige);
   }
 
   void CpuFensterAuswählen() {
