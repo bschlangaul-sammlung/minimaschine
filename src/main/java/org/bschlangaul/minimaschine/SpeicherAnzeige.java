@@ -10,6 +10,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
@@ -28,7 +30,7 @@ class SpeicherAnzeige extends Anzeige implements SpeicherBeobachter {
   private JScrollPane scrollpane;
   private JScrollPane scrollpaneGross;
   private int geändert = -1;
-  private boolean editierbar = false;
+  private boolean editierbar = true;
   private JCheckBoxMenuItem editItem;
   private JCheckBoxMenuItem hexaItem;
   private JCheckBoxMenuItem opcodeItem;
@@ -207,34 +209,42 @@ class SpeicherAnzeige extends Anzeige implements SpeicherBeobachter {
     this.sichernItem.setEnabled(false);
     this.sichernUnterItem.setEnabled(false);
     this.druckenItem.setEnabled(false);
+
     JMenuItem jMenuItem = new JMenuItem("Widerrufen", 90);
     jMenuItem.setAccelerator(KeyStroke.getKeyStroke(90, kommando));
     jMenuItem.setEnabled(false);
     this.bearbeitenMenü.add(jMenuItem);
+
     jMenuItem = new JMenuItem("Wiederholen");
     jMenuItem.setAccelerator(KeyStroke.getKeyStroke(90, 64 + kommando));
     jMenuItem.setEnabled(false);
     this.bearbeitenMenü.add(jMenuItem);
     this.bearbeitenMenü.addSeparator();
+
     jMenuItem = new JMenuItem("Ausschneiden", 88);
     jMenuItem.setAccelerator(KeyStroke.getKeyStroke(88, kommando));
     jMenuItem.setEnabled(false);
     this.bearbeitenMenü.add(jMenuItem);
+
     jMenuItem = new JMenuItem("Kopieren", 67);
     jMenuItem.setAccelerator(KeyStroke.getKeyStroke(67, kommando));
     jMenuItem.setEnabled(false);
     this.bearbeitenMenü.add(jMenuItem);
+
     jMenuItem = new JMenuItem("Einfügen", 86);
     jMenuItem.setAccelerator(KeyStroke.getKeyStroke(86, kommando));
     jMenuItem.setEnabled(false);
     this.bearbeitenMenü.add(jMenuItem);
+
     jMenuItem = new JMenuItem("Alles auswählen", 65);
     jMenuItem.setAccelerator(KeyStroke.getKeyStroke(65, kommando));
     jMenuItem.setEnabled(false);
     this.bearbeitenMenü.add(jMenuItem);
     this.werkzeugMenü.addSeparator();
+
     jMenuItem = new JMenuItem("Speicher löschen", 65);
     jMenuItem.setEnabled(true);
+    jMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, kommando + ActionEvent.ALT_MASK));
     jMenuItem.addActionListener(new ActionListener() {
 
       @Override
@@ -244,9 +254,11 @@ class SpeicherAnzeige extends Anzeige implements SpeicherBeobachter {
     });
     this.werkzeugMenü.add(jMenuItem);
     this.werkzeugMenü.addSeparator();
+
     this.hexaItem = new JCheckBoxMenuItem("Darstellung hexadezimal");
     this.hexaItem.setEnabled(true);
     this.hexaItem.setSelected(false);
+    this.hexaItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, kommando + ActionEvent.ALT_MASK));
     this.hexaItem.addActionListener(new ActionListener() {
 
       @Override
@@ -263,6 +275,7 @@ class SpeicherAnzeige extends Anzeige implements SpeicherBeobachter {
     this.opcodeItem = new JCheckBoxMenuItem("Opcodes anzeigen");
     this.opcodeItem.setEnabled(true);
     this.opcodeItem.setSelected(false);
+    this.opcodeItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, kommando + ActionEvent.ALT_MASK));
     this.opcodeItem.addActionListener(new ActionListener() {
 
       @Override
@@ -277,9 +290,11 @@ class SpeicherAnzeige extends Anzeige implements SpeicherBeobachter {
     this.werkzeugMenü.add(this.hexaItem);
     this.werkzeugMenü.add(this.opcodeItem);
     this.werkzeugMenü.addSeparator();
+
     this.editItem = new JCheckBoxMenuItem("Speicher editieren");
     this.editItem.setEnabled(true);
-    this.editItem.setSelected(false);
+    this.editItem.setSelected(true);
+    this.editItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, kommando + ActionEvent.ALT_MASK));
     this.editItem.addActionListener(new ActionListener() {
 
       @Override

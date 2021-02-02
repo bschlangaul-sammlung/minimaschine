@@ -8,6 +8,7 @@ import com.apple.eawt.QuitHandler;
 import com.apple.eawt.QuitResponse;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -118,6 +119,7 @@ abstract class Anzeige {
       }
     });
     this.dateiMenü.add(jMenuItem);
+
     jMenuItem = new JMenuItem("Öffnen \u2026", 79);
     jMenuItem.setAccelerator(KeyStroke.getKeyStroke(79, kommando));
     jMenuItem.addActionListener(new ActionListener() {
@@ -129,16 +131,20 @@ abstract class Anzeige {
     });
     this.dateiMenü.add(jMenuItem);
     this.dateiMenü.addSeparator();
+
     this.schließenItem = new JMenuItem("Schließen", 87);
     this.schließenItem.setAccelerator(KeyStroke.getKeyStroke(87, kommando));
     this.dateiMenü.add(this.schließenItem);
+
     this.sichernItem = new JMenuItem("Sichern", 83);
     this.sichernItem.setAccelerator(KeyStroke.getKeyStroke(83, kommando));
     this.dateiMenü.add(this.sichernItem);
+
     this.sichernUnterItem = new JMenuItem("Sichern unter \u2026");
     this.sichernUnterItem.setAccelerator(KeyStroke.getKeyStroke(83, kommando + 64));
     this.dateiMenü.add(this.sichernUnterItem);
     this.dateiMenü.addSeparator();
+
     this.druckenItem = new JMenuItem("Drucken \u2026");
     this.druckenItem.setAccelerator(KeyStroke.getKeyStroke(80, kommando));
     this.dateiMenü.add(this.druckenItem);
@@ -159,9 +165,11 @@ abstract class Anzeige {
     this.menüZeile.add(this.bearbeitenMenü);
     this.werkzeugMenü = new JMenu("Werkzeuge");
     this.menüZeile.add(this.werkzeugMenü);
+
     this.größeItem = new JCheckBoxMenuItem("Große Darstellung");
     this.größeItem.setEnabled(true);
     this.größeItem.setSelected(false);
+    this.größeItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, kommando + ActionEvent.ALT_MASK));
     this.größeItem.addActionListener(new ActionListener() {
 
       @Override

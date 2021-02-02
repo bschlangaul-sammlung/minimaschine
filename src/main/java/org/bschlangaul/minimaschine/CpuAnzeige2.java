@@ -6,6 +6,8 @@ import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
 import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
@@ -145,7 +147,7 @@ class CpuAnzeige2 extends Anzeige implements CpuBeobachter {
     this.werkzeugMenü.add(jMenuItem);
     this.werkzeugMenü.addSeparator();
     jMenuItem = new JMenuItem("Abbruchschranke setzen");
-    jMenuItem.setAccelerator(KeyStroke.getKeyStroke(65, kommando + 512));
+    jMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, kommando + ActionEvent.ALT_MASK));
     jMenuItem.addActionListener(new ActionListener() {
 
       @Override
